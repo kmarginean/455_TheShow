@@ -1,6 +1,6 @@
 #Boxplot
 paris_data <- read.csv(file = "Paris_data_revised.csv")
-boxplot(Paris_data_revised$X..listings.per.id, main="Box Plot of Number of Rentals by Host ID",horizontal = TRUE)
+boxplot(Paris_data_revised$X..listings.per.id, main="Box Plot of Number of Rentals Per Host", xlab="Number of Rentals Per Host",horizontal = TRUE)
 
 library(extrafontdb)
 library(ggplot2)
@@ -18,7 +18,8 @@ waffle(host_counts/100, title="Number of Rentals Per Host ID", xlab="One Square 
 #Time Series
 rental_numbers <- read.csv(file="Rental Numbers.csv")
 ggplot(rental_numbers, aes(x=rental_numbers$ï..Year, y=rental_numbers$Number.Rentals))+geom_line()+geom_point() +
-xlab("Number of Rentals Listed") +
-ylab("Year") +
+  scale_x_continuous(breaks = seq(2015, 2017, by = 1)) +
+  xlab("Year") +
+ylab("Number of Rentals Listed") +
 ggtitle("Number of AirBnB Rentals Listed in Paris by Year")
 
